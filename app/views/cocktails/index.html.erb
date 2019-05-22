@@ -1,15 +1,28 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <h1 class="my-5 text-center"> All Cocktails 🍹</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1446933810843-52d1ae9be86b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80;")>
+  <div class="container">
+    <h1> Cocktail's Bar </h1>
+    <p><strong>Come</strong> and <strong>Create</strong> your Cocktails!</p>
+  </div>
+</div>
 
-      <ul>
-        <% @cocktails.each do |cocktail| %>
-          <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-          <% end %>
-          <li><%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary btn-lg" %></li>
+  <div class="container">
 
-      </ul>
+    <div class="row justify-content-center">
+      <h1 class="my-5 text-center " > Our Cocktails</h1>
+        <div class="col-md-4">
+        <ul>
+
+          <% @cocktails.each do |cocktail| %>
+          <div class="card-product">
+            <div class="card-product-infos">
+            <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
+           <%= link_to cocktail.name, cocktail_path(cocktail) %>
+            </div>
+          </div>
+            <% end %>
+            <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-dark btn-lg" %>
+        </ul>
+        </div>
     </div>
   </div>
 </div>
